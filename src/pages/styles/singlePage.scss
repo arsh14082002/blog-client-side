@@ -1,0 +1,46 @@
+.single_post_page {
+  width: 100%;
+
+  .single_post_blog {
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 60px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    ol {
+      list-style-type: number;
+      padding-left: 20px;
+
+      li {
+        font-size: 20px;
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+
+      li {
+        font-size: 20px;
+      }
+    }
+  }
+}
