@@ -1,7 +1,7 @@
 import axios from 'axios';
 // https://blog-server-nbl8.onrender.com/api
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://ecommerce-backend-new-lzwj.onrender.com/api',
 });
 
 api.interceptors.request.use(
