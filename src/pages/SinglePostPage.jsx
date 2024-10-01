@@ -75,14 +75,14 @@ const SinglePostPage = () => {
 
       <div className="single_post_page_header mx-auto p-4">
         {post ? (
-          <div className="bg-white p-4 rounded-lg shadow-md">
+          <div className="bg-white p-4 rounded-lg ">
             <h1 className="text-[60px] font-bold mb-4">{post.title}</h1>
             <img src={post.banner} alt="" className="w-full h-80 object-cover" />
 
             <div className="single_post_blog">
               <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />{' '}
             </div>
-            <div>
+            <div className="mt-5">
               {post.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -97,26 +97,41 @@ const SinglePostPage = () => {
         ) : (
           <p>Post not found</p>
         )}
-
+        {/* 
         <LikeButton
           postId={id.title}
           isLiked={isLiked}
           onLike={handleLike}
           onUnlike={handleUnlike}
-        />
+        /> */}
 
-        <CreateComments postId={id.title} token={token} refreshComments={refreshComments} />
-        <GetComment postId={id.title} />
+        {/* <CreateComments postId={id.title} token={token} refreshComments={refreshComments} />
+        <GetComment postId={id.title} /> */}
 
         {relatedPosts.length > 0 && (
-          <div>
-            <h2>Related Post</h2>
+          <div className="mt-8">
+            <h2 className="text-3xl font-bold">Related Post</h2>
 
             <div className="grid grid-cols-4 gap-3">
               {relatedPosts.map((relatedPost) => (
-                <div key={relatedPost._id}>
-                  <img src={relatedPost.banner} alt="" />
-                  <Link to={`/${toUrlFriendly(relatedPost._id)}`}>{relatedPost.title}</Link>
+                <div
+                  key={relatedPost._id}
+                  className="border-2 border-solid border-black p-3 rounded"
+                >
+                  <img
+                    src={relatedPost.banner}
+                    alt={relatedPost.title}
+                    className="h-32 object-cover w-full"
+                  />
+                  <h4 to={`/${toUrlFriendly(relatedPost._id)}`} className="text-xl font-bold">
+                    {relatedPost.title}
+                  </h4>
+
+                  <p>{relatedPost.des}</p>
+
+                  <button className="p-2 text-white font-bold text-center flex justify-center items-center rounded-lg bg-black w-full mt-3">
+                    <Link to={'/relatedPost._id'}>Read Blog</Link>
+                  </button>
                 </div>
               ))}
             </div>

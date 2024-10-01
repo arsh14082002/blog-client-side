@@ -59,9 +59,11 @@ const UserProfile = () => {
 
   return (
     <div>
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">User Profile</h1>
-        <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="container mx-auto p-4 border-slate-300 border-2 border-solid w-fit rounded-md mt-6">
+        <h1 className="text-2xl font-bold mb-4 text-center capitalize ">
+          {profile.personal_info.fullname}
+        </h1>
+        <div className="bg-white p-4 rounded-lg flex justify-center items-center flex-col ">
           <img
             src={profile.personal_info.profile_img}
             alt={profile.personal_info.fullname}
@@ -75,13 +77,13 @@ const UserProfile = () => {
           </p>
         </div>
 
-        <div>
-          <div>
+        <div className="flex justify-center items-center gap-3">
+          <div className="p-3 bg-slate-500 text-white font-bold rounded-lg">
             <span>Posts</span>
             <span>{profile.account_info.total_posts}</span>
           </div>
 
-          <div>
+          <div className="p-3 bg-slate-500 text-white font-bold rounded-lg">
             <span>Reads</span>
             <span>{profile.account_info.total_reads}</span>
           </div>

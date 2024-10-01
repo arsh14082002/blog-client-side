@@ -16,6 +16,8 @@ const CreatePost = () => {
   const [tagInput, setTagInput] = useState('');
   const [loading, setLoading] = useState(false); // New state for loading
 
+  const MAX_DESCRIPTION_LENGTH = 200;
+
   const handleFileSelect = (file) => {
     setBanner(file);
   };
@@ -103,6 +105,13 @@ const CreatePost = () => {
     'clean',
   ];
 
+  const handleDesChange = (e) => {
+    const newDes = e.target.value;
+    if (newDes.length <= MAX_DESCRIPTION_LENGTH) {
+      setDes(newDes);
+    }
+  };
+
   return (
     <div>
       <h1>Create Post</h1>
@@ -129,9 +138,12 @@ const CreatePost = () => {
             name="des"
             id="des"
             value={des}
-            onChange={(e) => setDes(e.target.value)}
+            onChange={handleDesChange}
             className="border-2 p-1 border-solid border-black rounded-lg w-full resize-none h-[150px]"
           ></textarea>
+          <div className="text-sm mt-1">
+            {des.length}/{MAX_DESCRIPTION_LENGTH}
+          </div>
         </div>
         <div className="flex flex-col gap-1">
           <label>Editor Content</label>

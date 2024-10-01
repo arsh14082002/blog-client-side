@@ -1,4 +1,6 @@
 import { getPosts } from '@/api';
+import ErrorMsg from '@/components/custom/ErrorMsg';
+import Loader from '@/components/custom/Loader';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -26,11 +28,11 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <ErrorMsg msg={error} />;
   }
 
   const toUrlFriendly = (str) => {
@@ -41,13 +43,13 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>All Posts</h1>
-      <div className="grid grid-cols-4 gap-4">
+    <div className="p-4">
+      <h1 className="text-5xl font-bold">All Posts</h1>
+      <div className="grid lg:grid-cols-4 gap-4 sm:grid-cols-2">
         {posts.map((post) => (
           <div
             key={post._id}
-            className="bg-white p-4 rounded-lg shadow-md flex flex-col justify-center"
+            className="bg-white p-2 rounded-lg shadow-md flex flex-col justify-start border-2 border-solid border-black"
           >
             <img
               src={post.banner}
