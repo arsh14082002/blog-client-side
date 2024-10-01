@@ -3,7 +3,7 @@ import { LoaderCircle } from 'lucide-react';
 const Loader = () => {
   return (
     <div className="flex items-center justify-center h-screen">
-      <LoaderCircle className="animate-spin text-blue-500" size={48} />
+      <LoaderCircle className="animate-spin text-blue-500" size={47} />
     </div>
   );
 };
